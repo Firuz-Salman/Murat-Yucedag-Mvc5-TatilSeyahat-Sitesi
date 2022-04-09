@@ -7,7 +7,7 @@
 
 <h2>Blog listesi</h2>
 <br />
-<a href="#" class="btn btn-primary">Yeni Blog</a>
+<a href="/Admin/YeniBlog" class="btn btn-primary">Yeni Blog</a>
 <br /><br />
 <table class="table table-bordered">
     <tr>
@@ -26,7 +26,7 @@
             <td>@blog.ID</td>
             <td><a href="#">@blog.Baslik</a></td>
             <td><a href="#" class="btn btn-warning">Guncelle</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/BlogSil/@blog.ID" class="btn btn-danger">Sil</a></td>
             <td><a href="#" class="btn btn-default">Detaylar</a></td>
         </tr>
     }
