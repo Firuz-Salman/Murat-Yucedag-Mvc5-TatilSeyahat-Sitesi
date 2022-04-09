@@ -1,0 +1,64 @@
+﻿@model Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar.Blog
+@{ string action, button, header, btnStyle;}
+@if (Model is null)
+{
+    action = "BlogEkle";
+    button = "Blog ekle";
+    header = "Blog güncelleme sayfası";
+    btnStyle = "btn btn-primary";
+}
+else
+{
+    action = "BlogGuncelle";
+    button = "Güncəllə";
+    header = "Yeni blog ekle";
+    btnStyle = "btn btn-succes";
+}
+@{
+    ViewBag.Title = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<html>
+<head>
+    @*<title></title>*@
+</head>
+<body>
+
+    <h2>@header</h2>
+    <br />
+
+        @using (Html.BeginForm(action,"Admin",FormMethod.Post, new { @class = "form - group" }))
+        {
+        if (Model != null)
+        {
+            @Html.LabelFor(x => x.ID)
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+            <br />
+        }
+        @Html.LabelFor(x => x.Baslik)
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Tarih)
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.BlogImage)
+        @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+        <br />
+
+        <button class="@btnStyle">@button</button>
+
+        }
+
+
+</body>
+</html>
+
+
+
+
+
+
+
