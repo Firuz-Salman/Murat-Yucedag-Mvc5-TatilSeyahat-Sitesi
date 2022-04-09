@@ -1,0 +1,26 @@
+﻿@using Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar
+@model List<Hakkimizda>
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>Hakkımızda</h3>
+            @foreach (var item in Model)
+            {
+            <img src="@item.FotoUrl" alt="" />
+                <p>@item.Aciklama</p>
+                if (true)
+                {
+                    var aa = item.FotoUrl;
+                    var bb = item.Aciklama;
+                }
+            }
+        </div>
+    </div>
+</div>
+

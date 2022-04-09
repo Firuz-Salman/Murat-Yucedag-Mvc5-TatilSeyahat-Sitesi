@@ -1,0 +1,139 @@
+﻿@using Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar
+@model BlogYorum
+@{
+    ViewBag.Title = "Index";
+    Layout = "/Views/Shared/_TestLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    @*<title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>*@
+    <link href="~/wwwroot/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/wwwroot/web2/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    @*<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>*@
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>*@
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="~/wwwroot/web2/js/move-top.js"></script>
+    @*<script type="text/javascript" src="~/wwwroot/web2/js/easing.js"></script>*@
+    <!--/script-->
+    @*<script type="text/javascript">
+                jQuery(document).ready(function($) {
+                    $(".scroll").click(function(event){
+                        event.preventDefault();
+                        $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                    });
+                });
+        </script>*@
+    <!---->
+
+</head>
+<body>
+    <div>
+        <!---header---->
+        @*<!--
+            <div class="header">
+                <div class="container">
+                    <div class="logo">
+                    </div>
+                    <!---start-top-nav---->
+            <div class="top-menu">
+                <div class="search">
+                    <form>
+                        <input type="text" placeholder="" required="">
+                        <input type="submit" value="" />
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <script>
+                $("span.menu").click(function () {
+                    $(".top-menu ul").slideToggle("slow", function () {
+                    });
+                });
+            </script>
+            <!---//End-top-nav---->
+            </div>
+            </div>
+            -->*@
+        <!--/header-->
+    </div>
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                @foreach (var item in Model.Blogs)
+                {
+                    <div class="single-grid">
+                        <img src="@item.BlogImage" style="margin-bottom:20px" alt="" />
+                        <a href="/Blog/BlogDetay/@item.ID" style="margin-top:15px">@item.Baslik</a>
+                        <p>
+                            @item.Aciklama
+                        </p>
+                    </div>
+                    <br /><br />
+                }
+
+                <ul class="comment-list">
+                    <li>
+                        <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>
+                    </li>
+                    <li>
+                        <img src="~/wwwroot/web2/images/avatar.png" class="img-responsive" alt="">
+                        <div class="desc">
+                            <p>View all posts by: <a href="#" title="Posts by admin" rel="author">admin</a></p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 side-content">
+                <div class="recent">
+                    <h3>Son Bloglar</h3>
+                    <ul>
+                        @foreach (var blog in Model.Blogs)
+                        {
+                            <li><a href="/Blog/BlogDetay/@blog.ID">@blog.Baslik</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="comments">
+                    <h3>Son yorumlar</h3>
+                    <ul>
+                        @{ var sonYorumlar = Model.Yorumlars.OrderByDescending(x => x.ID).Take(5);}
+                        @foreach (var yorum in sonYorumlar)
+                        {
+                            <li><a href="#">@yorum.KullaniciAdi </a>: <a href="/Blog/BlogDetay/@yorum.BlogID">@yorum.Yorum.Substring(0, 35)...</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!---->
+    <div class="footer">
+        <div class="container">
+            <p>Copyrights © 2015 Blog All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

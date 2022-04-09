@@ -1,0 +1,68 @@
+﻿@model List<Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar.Blog>
+
+<div class="con-bot">
+    @foreach (var blog in Model.OrderByDescending(x => x.ID).Take(3).OrderBy(x => x.ID).Take(2))
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@blog.BlogImage" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@blog.Baslik</h4>
+                <span class="doller">@blog.Tarih.ToShortDateString()</span>
+                <p>@blog.Aciklama.Split('.')[0] @*Substring(0, 15)*@</p>
+                <p><a href="/Blog/BlogDetay/@blog.ID"><span class="read">Davamını oxu >></span></a></p>
+            </div>
+        </div>
+        <div>
+            @*<div class="left">
+            <div class="bot-left">
+                <img src="images/pic.jpg" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
+                <span class="doller">$1024.99</span>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
+                <p><a href="#"><span class="read">Read More >></span></a></p>
+            </div>
+        </div>
+        <div class="left">
+            <div class="bot-left">
+                <img src="images/pic1.jpg" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
+                <span class="doller">$900.99</span>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
+                <p><a href="#"><span class="read">Read More >></span></a></p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="bot-left">
+                <img src="images/pic2.jpg" alt="" />
+            </div>
+            <div class="left-text">
+
+                <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
+                <span class="doller">$924.99</span>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
+                <p><a href="#"><span class="read">Read More >></span></a></p>
+            </div>
+        </div>*@
+        </div>
+    }
+    @{ var sagBlog = Model.OrderByDescending(x => x.ID).Take(3).FirstOrDefault();}
+    <div class="right">
+        <div class="bot-left">
+            <img src="@sagBlog.BlogImage" alt="" />
+        </div>
+        <div class="left-text">
+            <h4>@sagBlog.Baslik</h4>
+            <span class="doller">@sagBlog.Tarih.ToString("MMM-dd-yyyy")</span>
+            <p>@sagBlog.Aciklama.Split('.')[0] @*Substring(0, 15)*@</p>
+            <p><a href="/Blog/BlogDetay/@sagBlog.ID"><span class="read">Davamını oxu >></span></a></p>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+

@@ -1,4 +1,5 @@
-﻿
+﻿@using Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar
+@model List<Blog>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_TestLayout.cshtml";
@@ -21,37 +22,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="banner-left">
                         <div class="con-text">
                             <div class="grid1-img">
-                                <img src="~/web/images/glass.png" alt="">
+                                <img src="~/wwwroot/web/images/glass.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Restaurants</p>
+                                <p>Restoranlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="con-text">
                             <div class="grid1-img">
-                                <img src="~/web/images/flight.png" alt="">
+                                <img src="~/wwwroot/web/images/flight.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Flights</p>
+                                <p>Uçuşlar</p>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="con-text">
                             <div class="grid1-img">
-                                <img src="~/web/images/group.png" alt="">
+                                <img src="~/wwwroot/web/images/group.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Things to do</p>
+                                <p>Ediləcəklər</p>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="con-text">
                             <div class="grid1-img">
-                                <img src="~/web/images/key.png" alt="">
+                                <img src="~/wwwroot/web/images/key.png" alt="">
                             </div>
                             <div class="grid1-desc">
-                                <p>Vacation Rents</p>
+                                <p>Avtomobil kirayə</p>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -59,12 +60,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="header_bottom_right_images">
 
-                        <div class="slider">
+                        <div class="slider" style="width:600px; height:340px">
                             <ul class="rslides" id="slider1">
-                                <li><img src="~/web/images/img1.jpg" alt=""></li>
-                                <li><img src="~/web/images/img2.jpg" alt=""></li>
-                                <li><img src="~/web/images/img3.jpg" alt=""></li>
-                                <li><img src="~/web/images/img4.jpg" alt=""></li>
+
+                                @foreach (var blog in Model)
+                                {
+                                    <li><a href="/Blog/BlogDetay/@blog.ID"><img href="/BlogDetay/@blog.ID" src="@blog.BlogImage" alt=""></a></li>
+                                }
+                                @*<li><img src="~/wwwroot/web/images/img1.jpg" alt=""></li>
+                                <li><img src="~/wwwroot/web/images/img2.jpg" alt=""></li>
+                                <li><img src="~/wwwroot/web/images/img3.jpg" alt=""></li>
+                                <li><img src="~/wwwroot/web/images/img4.jpg" alt=""></li>*@
+
                             </ul>
                         </div>
                     </div>
@@ -78,46 +85,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="wrap">
             <div class="wrapper">
                 <div class="con-top">
-                    <h3>Welcome to our Travel Company!</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facil</p>
+                    <h3>Tətil seyahət Bloguma xoş gəldiniz!</h3>
+                    <p>Bu proyekti youtube saytından Murat Yücedağın videolarına baxıb düzəltmişəm. Gəzib gördüyüm yerləri sizlərlə payıaşmaq üçün kodlaşdırmasını özüm etdiyim Mvc5 üzərində dinamik bir websayt proyektidir. Ölkəmdə və dünyada gəzib gördüyüm yerləri blog yazılar olaraq sizlərlə paylaşmaq niyyətindəyəm. Ümid edirəm paylaşımlarımı bəyənərsiniz. Sizə də dünyanı gəzib görmək diləyi ilə xoş istirahətlər... </p>
                 </div>
-                <div class="con-bot">
-                    <div class="left">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-                            <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
-                            <span class="doller">$1024.99</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
-                            <p><a href="#"><span class="read">Read More >></span></a></p>
-                        </div>
-                    </div>
-                    <div class="left">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic1.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-                            <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
-                            <span class="doller">$900.99</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
-                            <p><a href="#"><span class="read">Read More >></span></a></p>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="bot-left">
-                            <img src="~/web/images/pic2.jpg" alt="" />
-                        </div>
-                        <div class="left-text">
-
-                            <h4>Lorem ipsum dolor sit amet, conte adipiscing elit dolor sit amet</h4>
-                            <span class="doller">$924.99</span>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo</p>
-                            <p><a href="#"><span class="read">Read More >></span></a></p>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+                @{ Html.RenderPartial("Partial1",Model);}
                 <div class="grids">
                     <div class="box1">
                         <div class="padding">
@@ -140,47 +111,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h4>Our Best Places</h4>
                             <div class="box-left">
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic3.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic3.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>1.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic7.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic7.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>2.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic8.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic8.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>3.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                             <div class="box1-left">
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic9.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic9.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>4.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic10.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic10.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>5.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                                 <div class="bot-img">
-                                    <img src="~/web/images/pic3.jpg" alt="" />
+                                    <img src="~/wwwroot/web/images/pic3.jpg" alt="" />
                                 </div>
                                 <div class="bot-desc1">
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
+                                    <p>6.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet </p>
                                 </div>
                                 <div class="clear"></div>
                             </div>
@@ -190,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </body>
 </html>
 
