@@ -1,0 +1,33 @@
+﻿@using Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar
+@model List<Yorumlar>
+@{
+    ViewBag.Title = "YorumListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Listele</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>BlogID</th>
+        <th>Blog başlığı</th>
+        <th>Kullanıcı adı</th>
+        <th>Mail</th>
+        <th>Yorum</th>
+    </tr>
+    @foreach (var yorum in Model)
+    {
+    <tr>
+        <td>@yorum.ID</td>
+        <td>@yorum.BlogID</td>
+        <td>@yorum.Blog.Baslik</td>
+        <td>@yorum.KullaniciAdi</td>
+        <td>@yorum.Mail</td>
+        <td>@yorum.Yorum</td>
+        <td><a href="/Admin/YorumSil/@yorum.ID" class="btn btn-danger">Sil</a></td>
+        <td><a href="/Admin/YorumDetail/@yorum.ID" class="btn btn-warning">Güncelle</a></td>
+    </tr>
+    }
+</table>
+

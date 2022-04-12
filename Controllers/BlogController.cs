@@ -46,8 +46,6 @@ namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
                ctx.Yorumlars.Add(yorum);
                ctx.SaveChanges();
 
-               //ViewBag.BlogID = yrm.BlogID;
-
                return PartialView();
           }
           public class Yorumlar2 : Yorumlar

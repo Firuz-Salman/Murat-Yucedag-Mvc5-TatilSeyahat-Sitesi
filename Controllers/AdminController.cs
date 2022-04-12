@@ -23,10 +23,11 @@ namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
           }
 
 
-          public ActionResult BlogDetail(int? id)
+          public ActionResult BlogDetail(int id)
           {
-               Blog blog = null;
-               if (id != null) blog = ctx.Blogs.Find(id);
+               //Blog blog = null;
+               //if (id != null) blog = ctx.Blogs.Find(id);
+               Blog blog = ctx.Blogs.Find(id);
 
                return View(blog);
           }
@@ -40,7 +41,7 @@ namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
 
                ViewBag.indexDetay = new Dictionary<string, string> { { "blogAdi", blog.Baslik }, { "blogStatusu", "eklendi" } };
 
-               return View("Index", ctx.Blogs.ToList());
+               return RedirectToAction("Index");
           }
 
           [HttpPost]
@@ -68,6 +69,41 @@ namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
                ViewBag.indexDetay = new Dictionary<string, string> { { "blogAdi", silinenBlog.Baslik }, { "blogStatusu", "silindi" } };
 
                return View("Index", ctx.Blogs.ToList());
+          }
+
+          public ActionResult YorumListele()
+          {
+               var yorumlar = ctx.Yorumlars.ToList();
+               return View(yorumlar);
+          }
+
+          public ActionResult YorumSil(int id)
+          {
+               var silinenYorum = ctx.Yorumlars.Find(id);
+               ctx.Yorumlars.Remove(silinenYorum);
+               ctx.SaveChanges();
+
+               return RedirectToAction("YorumListele");
+          }
+
+          public ActionResult YorumDetail(int id)
+          {
+               Yorumlar yorum = ctx.Yorumlars.Find(id)  ;
+
+               return View(yorum);
+          }
+          [HttpPost]
+          public ActionResult YorumGuncelle(Yorumlar updatedYorum)
+          {
+               var oldYorum = ctx.Yorumlars.Find(updatedYorum.ID);
+               oldYorum.KullaniciAdi = updatedYorum.KullaniciAdi;
+               oldYorum.Mail = updatedYorum.Mail;
+               oldYorum.Yorum = updatedYorum.Yorum;
+               ctx.SaveChanges();
+
+               //ViewBag.indexDetay = new Dictionary<string, string> { { "blogAdi", updatedYorum.Baslik }, { "blogStatusu", "güncellendi" } };
+
+               return RedirectToAction("YorumListele");
           }
      }
 }

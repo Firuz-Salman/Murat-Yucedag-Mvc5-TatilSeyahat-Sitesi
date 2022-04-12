@@ -8,7 +8,7 @@
 
 <h2>Blog listesi</h2>
 <br />
-@if (!(ViewBag.indexDetay is null))
+@if (ViewBag.indexDetay != null)
 {
     var detay = ViewBag.indexDetay as Dictionary<string, string>;
     metn = $"{detay["blogAdi"]} isimli blog {detay["blogStatusu"]}";
