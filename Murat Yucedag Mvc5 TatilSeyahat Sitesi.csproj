@@ -178,6 +178,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\weblogin Tema\css\style.css" />
+    <Content Include="wwwroot\weblogin Tema\images\b4.jpg" />
+    <Content Include="wwwroot\weblogin Tema\index.html" />
+    <Content Include="wwwroot\weblogin Tema\w3layouts-License.txt" />
     <Content Include="wwwroot\web\about.html" />
     <Content Include="wwwroot\web\contact.html" />
     <Content Include="wwwroot\web\css\slider.css" />
@@ -253,6 +257,8 @@
     <Content Include="Views\Blog\YorumYap.cshtml" />
     <Content Include="Views\Admin\YorumListele.cshtml" />
     <Content Include="Views\Admin\YorumDetail.cshtml" />
+    <Content Include="wwwroot\weblogin Tema\fonts\Asap-Regular.ttf" />
+    <Content Include="wwwroot\weblogin Tema\fonts\Audiowide-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
