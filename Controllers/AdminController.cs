@@ -8,6 +8,7 @@ using Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Models.Siniflar;
 
 namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
 {
+     [Authorize]
      public class AdminController : Controller
      {
           // GET: Admin
