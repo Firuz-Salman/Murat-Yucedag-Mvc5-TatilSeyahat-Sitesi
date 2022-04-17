@@ -118,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         @{ var sonYorumlar = Model.Yorumlars.OrderByDescending(x => x.ID).Take(5);}
                         @foreach (var yorum in sonYorumlar)
                         {
-                            <li><a href="#">@yorum.KullaniciAdi </a>: <a href="/Blog/BlogDetay/@yorum.BlogID">@yorum.Yorum.Substring(0, 35)...</a></li>
+                            <li><a href="#">@yorum.KullaniciAdi </a>: <a href="/Blog/BlogDetay/@yorum.BlogID">@yorum.Yorum.Substring(0, yorum.Yorum.Length >35 ? 35 : 5)...</a></li>
                         }
                     </ul>
                 </div>
