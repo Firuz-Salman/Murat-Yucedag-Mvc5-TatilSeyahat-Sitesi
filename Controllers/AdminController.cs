@@ -24,7 +24,7 @@ namespace Murat_Yucedag_Mvc5_TatilSeyahat_Sitesi.Controllers
           }
 
 
-          public ActionResult BlogDetail(int id)
+          public ActionResult BlogDetail(int? id)
           {
                //Blog blog = null;
                //if (id != null) blog = ctx.Blogs.Find(id);
